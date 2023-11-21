@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { Todo } from '../todo.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-form',
@@ -43,7 +44,12 @@ import { Todo } from '../todo.interface';
         </div>
       </div>
 
-      <button class="btn btn-primary" type="submit" [disabled]="todoForm.invalid">Add</button>
+      <div class="text-end mb-3">
+      <button class="btn btn-secondary" type="button" (click)="cancelForm()">Cancel</button>
+      <span style="margin-right: 10px;"></span>
+      <button class="btn btn-primary" type="submit" [disabled]="todoForm.invalid" *ngIf="isNewTodo()">Add</button>
+      <button class="btn btn-primary" type="submit" [disabled]="todoForm.invalid" *ngIf="!isNewTodo()">Update</button>
+    </div>
     </form>
   `,
   styles: [
@@ -68,7 +74,10 @@ export class TodoFormComponent implements OnInit {
 
   todoForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    ) { }
 
   get title() { return this.todoForm.get('title')!; }
   get description() { return this.todoForm.get('description')!; }
@@ -89,4 +98,8 @@ export class TodoFormComponent implements OnInit {
   submitForm() {
     this.formSubmitted.emit(this.todoForm.value);
   }
+  cancelForm() {
+    this.router.navigate(['/todos']);
+  }
+
 }
