@@ -14,7 +14,7 @@ import { TodoService } from '../todo.service';
         <thead>
             <tr>
             <th>Title</th>
-                <th>Description</th>
+                <!-- <th>Description</th> -->
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -23,7 +23,7 @@ import { TodoService } from '../todo.service';
         <tbody>
             <tr *ngFor="let todo of todos$ | async" [ngClass]="{ 'completed-todo': todo.status }">
             <td>{{todo.title}}</td>
-                <td>{{todo.description}}</td>
+                <!-- <td>{{todo.description}}</td> -->
                 <td>{{ todo.status ? 'completed' : 'pending' }}</td>
                 <td>
                     <button class="btn btn-primary me-1" [routerLink]="['edit/', todo._id]">Edit</button>
