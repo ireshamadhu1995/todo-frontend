@@ -1,15 +1,12 @@
-# Client
+# todo-frontend
+Angular frontend service for todo application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
-## Development server
+# project setup
+`git clone https://github.com/ireshamadhu1995/todo-frontend.git`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`npm install`
 
-## Code scaffolding
+`ng serve`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+open `http://localhost:4200` from the browser
