@@ -7,7 +7,7 @@ import { Todo } from './todo.interface';
   providedIn: 'root'
 })
 export class TodoService {
-  private url = 'https://localhost:7176/api';
+  private url = 'http://localhost:5200';
   private todos$: Subject<Todo[]> = new Subject();
 
   constructor(private httpClient: HttpClient) { }
